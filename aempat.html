@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halaman Ujian Terkunci</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #ffeded;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .box {
+        background: white;
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        width: 90%;
+        max-width: 420px;
+    }
+
+    h1 {
+        color: red;
+        font-size: 38px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 18px;
+        margin-top: 5px;
+    }
+
+    input {
+        width: 80%;
+        padding: 12px;
+        margin-top: 20px;
+        border-radius: 8px;
+        border: 1px solid #bbb;
+        font-size: 18px;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 12px 25px;
+        font-size: 18px;
+        background: red;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background: darkred;
+    }
+
+    .alert {
+        margin-top: 10px;
+        color: red;
+        font-weight: bold;
+        display: none;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="box">
+    <h1>HALAMAN UJIAN TERKUNCI</h1>
+    <p>Anda terdeteksi <b>keluar dari halaman ujian</b>.</p>
+    <p>Pelanggaran Anda telah dicatat oleh sistem.</p>
+
+    <input type="password" id="pass" placeholder="Masukkan Sandi untuk Masuk">
+    <button onclick="cekPassword()">Masuk Kembali</button>
+    <p class="alert" id="alert">Sandi salah! Tidak dapat masuk.</p>
+</div>
+
+<script>
+    function cekPassword() {
+        let passwordBenar = "12345"; // Ubah sandi di sini
+        let input = document.getElementById("pass").value;
+
+        if (input === passwordBenar) {
+            window.location.href = "ujian.html"; // arahkan kembali ke halaman ujian
+        } else {
+            document.getElementById("alert").style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
